@@ -4,7 +4,7 @@ require "share_checker/version"
 
 Gem::Specification.new do |s|
   s.name = "share_checker"
-  s.version = Sunrise::VERSION.dup
+  s.version = ShareChecker::VERSION.dup
   s.platform = Gem::Platform::RUBY
   s.summary = "Insert ShareChecker summary."
   s.description = "Insert ShareChecker description."
