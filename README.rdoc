@@ -1,0 +1,41 @@
+= ShareChecker
+
+The easiest way to check how many times a URL has been shared on Twitter, Facebook, Vkontakte and Odnoklassniki.
+
+== Install
+  
+  gem 'share_checker'
+
+== Configure
+
+  ShareChecker.setup do |config|
+    config.vkontakte = { :app_id => 00000 } 
+  end
+  
+== Usage
+
+Supported providers: twitter, facebook, vkontakte and odnoklassniki:
+
+  ShareChecker.check("facebook", "SHARED_URL")
+
+  ShareChecker::Providers::Twitter.new("SHARED_URL").check
+
+Overwride default options:
+
+  ShareChecker.check("vkontakte", "SHARED_URL", { :app_id => 00001 })
+
+== Dependences
+
+* {curb}[https://github.com/taf2/curb]
+  
+  sudo apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev
+
+* {nokogiri}[http://nokogiri.org/]
+* {json}[http://flori.github.com/json/]
+* {active_support}[https://rubygems.org/gems/active_support]
+
+== Test
+
+  rake spec
+
+Copyright (c) 2011 Aimbulance, released under the MIT license
