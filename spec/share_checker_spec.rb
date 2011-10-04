@@ -12,7 +12,7 @@ describe ShareChecker do
     end
     
     it "should return full list of avariable providers" do
-      ShareChecker::Providers.avariable.should == [:facebook, :odnoklassniki, :twitter, :vkontakte]
+      ShareChecker::Providers.avariable.should == [:facebook, :odnoklassniki, :tweetracker, :twitter, :vkontakte]
     end
   end
   

@@ -9,6 +9,7 @@ module ShareChecker
     autoload :Twitter, 'share_checker/providers/twitter'
     autoload :Vkontakte, 'share_checker/providers/vkontakte'
     autoload :Odnoklassniki, 'share_checker/providers/odnoklassniki'
+    autoload :Tweetracker, 'share_checker/providers/tweetracker'
     
     def self.get(provider)
       "ShareChecker::Providers::#{provider.to_s.classify}".constantize
