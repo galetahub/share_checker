@@ -1,4 +1,4 @@
-require 'json'
+require 'crack/json'
 
 module ShareChecker
   module Providers
@@ -10,7 +10,7 @@ module ShareChecker
       #
       def parse(response)
         if response =~ /^twttr.receiveCount\((.+)\)$/i
-          obj = JSON.parse($1)
+          obj = Crack::JSON.parse($1)
           obj["count"].to_i  
         end
       end

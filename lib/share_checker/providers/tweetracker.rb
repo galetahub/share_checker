@@ -1,4 +1,4 @@
-require 'json'
+require 'crack/json'
 
 module ShareChecker
   module Providers
@@ -17,7 +17,7 @@ module ShareChecker
         count = 0
         
         begin
-          obj = JSON.parse(response)
+          obj = Crack::JSON.parse(response)
           count = (obj["users"] ? obj["users"].to_i : 0)
         rescue Exception => e
           puts "Error parse json: #{response}, #{e.message}"

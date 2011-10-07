@@ -5,7 +5,7 @@ gem "capybara", ">= 0.4.0"
 gem "sqlite3"
 
 gem "nokogiri"
-gem "json"
+gem "crack"
 gem "curb"
 
 gem "rspec-rails", "~> 2.6.1"
