@@ -14,8 +14,17 @@ module ShareChecker
       # }
       #
       def parse(response)
-        obj = JSON.parse(response)
-        obj["users"] ? obj["users"].to_i : 0
+        count = 0
+        
+        begin
+          obj = JSON.parse(response)
+          count = (obj["users"] ? obj["users"].to_i : 0)
+        rescue Exception => e
+          puts "Error parse json: #{response}, #{e.message}"
+          count = 0
+        end
+        
+        return count
       end
       
       def url
