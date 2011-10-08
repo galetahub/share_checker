@@ -1,4 +1,5 @@
 require 'curb'
+require 'crack'
 
 module ShareChecker
   class Provider
@@ -23,6 +24,28 @@ module ShareChecker
     
     def url
       raise NotImplementedError, "Must be overwritten in subclasses"
+    end
+    
+    def parse_xml(body)
+      begin
+        content = Crack::XML.parse(body)
+      rescue Exception => e
+        puts "#{@name} error parse xml: #{body}, #{e.message}, #{@link}"
+        content = nil
+      end
+      
+      return content
+    end
+    
+    def parse_json(body)
+      begin
+        content = Crack::JSON.parse(body)
+      rescue Exception => e
+        puts "#{@name} error parse xml: #{body}, #{e.message}, #{@link}"
+        content = nil
+      end
+      
+      return content
     end
     
     def method_missing(method_name, *args, &block)

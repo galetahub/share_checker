@@ -1,4 +1,6 @@
-require "active_support"
+require 'active_support/core_ext/module/attribute_accessors'
+require 'active_support/core_ext/object'
+require 'active_support/core_ext/string'
 
 module ShareChecker
   autoload :Provider, 'share_checker/provider'

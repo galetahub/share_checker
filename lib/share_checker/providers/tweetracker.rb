@@ -1,5 +1,3 @@
-require 'crack/json'
-
 module ShareChecker
   module Providers
     class Tweetracker < Provider
@@ -14,17 +12,8 @@ module ShareChecker
       # }
       #
       def parse(response)
-        count = 0
-        
-        begin
-          obj = Crack::JSON.parse(response)
-          count = (obj["users"] ? obj["users"].to_i : 0)
-        rescue Exception => e
-          puts "Error parse json: #{response}, #{e.message}"
-          count = 0
-        end
-        
-        return count
+        doc = parse_json(response)
+        doc.nil? ? 0 : doc["users"].to_i
       end
       
       def url

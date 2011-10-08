@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_runtime_dependency(%q<activesupport>, [">= 0"])
-  s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
   s.add_runtime_dependency(%q<crack>, [">= 0"])
   s.add_runtime_dependency(%q<curb>, [">= 0"])
 end

@@ -1,5 +1,3 @@
-require 'nokogiri'
-
 module ShareChecker
   module Providers
     class Facebook < Provider
@@ -20,8 +18,8 @@ module ShareChecker
       # </links_getStats_response>
       #
       def parse(response)
-        doc = Nokogiri::XML(response)
-        doc.at("like_count").content.to_i
+        doc = parse_xml(response)
+        doc.nil? ? 0 : doc["links_getStats_response"]["link_stat"]["like_count"].to_i
       end
       
       def url
