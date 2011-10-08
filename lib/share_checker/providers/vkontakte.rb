@@ -8,7 +8,7 @@ module ShareChecker
       #
       def parse(response)
         doc = parse_json(response)
-        doc.nil? ? 0 : doc["response"]["count"].to_i
+        doc && doc["response"] ? doc["response"]["count"].to_i : 0
       end
       
       def url
