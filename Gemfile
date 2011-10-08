@@ -4,6 +4,7 @@ gem "activesupport"
 gem "i18n"
 gem "crack"
 gem "curb"
+gem "nokogiri"
 
 #gem "rspec-rails", "~> 2.6.1"
 gem "rspec", "~> 2.6.0", :require => "spec"
