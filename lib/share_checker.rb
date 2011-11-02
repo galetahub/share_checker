@@ -14,7 +14,15 @@ module ShareChecker
     autoload :Tweetracker, 'share_checker/providers/tweetracker'
     
     def self.get(provider)
-      "ShareChecker::Providers::#{provider.to_s.classify}".constantize
+      case provider.to_s.downcase
+        when "facebook" then ShareChecker::Providers::Facebook
+        when "twitter" then ShareChecker::Providers::Twitter
+        when "vkontakte" then ShareChecker::Providers::Vkontakte
+        when "odnoklassniki" then ShareChecker::Providers::Odnoklassniki
+        when "tweetracker" then ShareChecker::Providers::Tweetracker
+        else
+          "ShareChecker::Providers::#{provider.to_s.classify}".constantize
+      end
     end
     
     def self.avariable

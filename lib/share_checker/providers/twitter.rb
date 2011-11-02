@@ -1,5 +1,3 @@
-require 'crack/json'
-
 module ShareChecker
   module Providers
     class Twitter < Provider

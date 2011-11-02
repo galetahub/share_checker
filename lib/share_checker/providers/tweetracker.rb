@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 module ShareChecker
   module Providers
     class Tweetracker < Provider

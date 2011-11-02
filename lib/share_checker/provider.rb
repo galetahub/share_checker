@@ -1,5 +1,6 @@
 require 'curb'
-require 'crack'
+require 'multi_xml'
+require 'multi_json'
 
 module ShareChecker
   class Provider
@@ -28,7 +29,7 @@ module ShareChecker
     
     def parse_xml(body)
       begin
-        content = Crack::XML.parse(body)
+        content = MultiXml.parse(body)
       rescue Exception => e
         puts "#{@name} error parse xml: #{body}, #{e.message}, #{@link}"
         content = nil
@@ -39,7 +40,7 @@ module ShareChecker
     
     def parse_json(body)
       begin
-        content = Crack::JSON.parse(body)
+        content = MultiJson.decode(body)
       rescue Exception => e
         puts "#{@name} error parse xml: #{body}, #{e.message}, #{@link}"
         content = nil
