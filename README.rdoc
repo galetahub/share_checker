@@ -9,7 +9,10 @@ The easiest way to check how many times a URL has been shared on Twitter, Facebo
 == Configure
 
   ShareChecker.setup do |config|
-    config.vkontakte = { :app_id => 00000 } 
+    config.vkontakte = { :app_id => 00000 }
+    
+    config.timeout = 30
+    config.user_agent = 'ShareChecker Robot'
   end
   
 == Usage

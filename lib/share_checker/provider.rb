@@ -59,9 +59,11 @@ module ShareChecker
     class << self
       def get(url)
         c = Curl::Easy.new(url) do |curl| 
-          curl.headers["User-Agent"] = "Mozilla/5.0 (X11; Linux i686; rv:2.0.1) Gecko/20100101 Firefox/6.0.0"
+          curl.headers["User-Agent"] = ShareChecker.config.user_agent
+          curl.timeout = ShareChecker.config.timeout
           curl.verbose = false
-          curl.timeout = 15
+          curl.follow_location = true
+          curl.max_redirects = 2
         end
 
         c.perform

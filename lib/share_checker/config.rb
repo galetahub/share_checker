@@ -26,9 +26,13 @@ module ShareChecker
     end
     
     hash_accessor *Providers.avariable
+    hash_accessor :timeout, :user_agent
     
     def initialize(other = {})
       merge!(other)
+      
+      self[:timeout] ||= 30
+      self[:user_agent] ||= "ShareChecker Robot"
       
       Providers.avariable.each do |provider|
         self[provider] ||= {}

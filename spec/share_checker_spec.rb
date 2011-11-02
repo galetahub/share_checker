@@ -14,6 +14,11 @@ describe ShareChecker do
     it "should return full list of avariable providers" do
       ShareChecker::Providers.avariable.should == [:facebook, :odnoklassniki, :tweetracker, :twitter, :vkontakte]
     end
+    
+    it "should get google search page" do
+      body = ShareChecker::Provider.get("http://www.google.com/")
+      body.should include("<title>Google</title>")
+    end
   end
   
   context "setup" do
